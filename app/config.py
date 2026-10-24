@@ -82,10 +82,12 @@ class Settings(BaseSettings):
 
     def __init__(self, **values):
         super().__init__(**values)
-        # Ensure data directories exist
-        self.data_dir.mkdir(parents=True, exist_ok=True)
-        self.upload_dir.mkdir(parents=True, exist_ok=True)
-        self.rules_dir.mkdir(parents=True, exist_ok=True)
+        # Ensure data directories exist (silently skip on read-only filesystems, e.g. Vercel)
+        for directory in (self.data_dir, self.upload_dir, self.rules_dir):
+            try:
+                directory.mkdir(parents=True, exist_ok=True)
+            except OSError:
+                pass  # Read-only filesystem (serverless environment)
 
 
 # Singleton settings instance used throughout the application

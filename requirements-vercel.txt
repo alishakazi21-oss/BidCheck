@@ -1,0 +1,26 @@
+# BidCheck - Vercel deployment requirements (slim build)
+# Heavy packages (PyMuPDF, weasyprint, pytesseract, streamlit) are excluded
+# because Vercel serverless functions have a 250MB unzipped size limit.
+
+# Web framework & API
+fastapi==0.115.0
+mangum==0.17.0
+
+# Database
+sqlalchemy==2.0.35
+
+# Data validation & settings
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# Text processing
+rapidfuzz==3.10.0
+python-dateutil==2.9.0
+
+# LLM (optional; only used when EXTRACTOR=llm)
+openai==1.51.2
+tenacity==9.0.0
+jsonschema==4.23.0
+
+# Utilities
+python-dotenv==1.0.1

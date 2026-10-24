@@ -65,8 +65,14 @@ def startup_event():
     engine = get_engine()
     create_tables(engine)
     session = SessionLocal()
-    setup_demo_environment(session, force_reset=False)
-    session.close()
+    try:
+        setup_demo_environment(session, force_reset=False)
+    except Exception as exc:  # noqa: BLE001
+        # Startup failures are non-fatal in serverless environments (no data dir)
+        import logging
+        logging.getLogger(__name__).warning("Demo environment setup skipped: %s", exc)
+    finally:
+        session.close()
 
 
 # Pydantic Request/Response models
