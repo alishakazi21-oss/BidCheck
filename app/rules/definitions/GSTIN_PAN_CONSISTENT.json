@@ -1,0 +1,13 @@
+{
+  "id": "GSTIN_PAN_CONSISTENT",
+  "label": "GSTIN and PAN belong to the same verified legal entity",
+  "mandatory": true,
+  "check": {
+    "field": "gst_pan_match",
+    "op": "==",
+    "value": true
+  },
+  "exemptions": [],
+  "on_missing": "NEEDS_REVIEW",
+  "missing_reason": "Either GSTIN or PAN card details are missing or unreadable; cannot verify consistency."
+}

@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "EMD_DOCUMENT",
+  "filename": "emd_document.pdf",
+  "sha256": "fd395fc32e61f41b77523fb1ebe15561f8b4cfb8ccb5cf2598dcb74df05d2577",
+  "fields": {
+    "emd_amount": {
+      "value": 50000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "EMD Amount: 50000.0",
+      "bbox": [
+        72,
+        300,
+        350,
+        320
+      ]
+    },
+    "emd_type": {
+      "value": "DD",
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "Type: DD",
+      "bbox": [
+        72,
+        320,
+        300,
+        340
+      ]
+    },
+    "emd_valid_until": {
+      "value": "2025-03-31",
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "Valid Until: 2025-03-31",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    },
+    "emd_or_exemption_present": {
+      "value": true,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "EMD/Exemption Present",
+      "bbox": [
+        72,
+        360,
+        350,
+        380
+      ]
+    }
+  }
+}

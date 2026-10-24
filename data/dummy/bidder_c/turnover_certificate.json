@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder C",
+  "bidder_name": "QuickByte Systems",
+  "doc_type": "TURNOVER_CERT",
+  "filename": "turnover_certificate.pdf",
+  "sha256": "03bc039b0d8183c257f21ef734fd8cb1476891fd7cd9dad89b4a552a410c457b",
+  "fields": {
+    "avg_turnover_3y": {
+      "value": 1800000.0,
+      "confidence": 0.92,
+      "page": 1,
+      "snippet": "Average Annual Turnover: Rs. 18,00,000",
+      "bbox": [
+        72,
+        350,
+        500,
+        380
+      ]
+    },
+    "turnover_fy1": {
+      "value": 1600000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2021-22: Rs. 16,00,000",
+      "bbox": [
+        72,
+        390,
+        400,
+        410
+      ]
+    },
+    "turnover_fy2": {
+      "value": 1800000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2022-23: Rs. 18,00,000",
+      "bbox": [
+        72,
+        410,
+        400,
+        430
+      ]
+    },
+    "turnover_fy3": {
+      "value": 2000000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2023-24: Rs. 20,00,000",
+      "bbox": [
+        72,
+        430,
+        400,
+        450
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder E",
+  "bidder_name": "NanoTech Components Pvt. Ltd.",
+  "doc_type": "GST_CERTIFICATE",
+  "filename": "gst_certificate.pdf",
+  "sha256": "17f330dde617e406ed5da47a6df312b4f16940b2a44a86c607bf02471104ce8e",
+  "fields": {
+    "gstin": {
+      "value": "24EEETN7890E1Z1",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "GSTIN: 24EEETN7890E1Z1",
+      "bbox": [
+        72,
+        300,
+        300,
+        320
+      ]
+    },
+    "company_name_gst": {
+      "value": "NANOTECH COMPONENTS PRIVATE LIMITED",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Legal Name: NANOTECH COMPONENTS PRIVATE LIMITED",
+      "bbox": [
+        72,
+        320,
+        450,
+        340
+      ]
+    },
+    "gst_registration_date": {
+      "value": "2021-06-01",
+      "confidence": 0.93,
+      "page": 1,
+      "snippet": "Date of Registration: 01/06/2021",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    }
+  }
+}

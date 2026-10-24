@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "PAN_CARD",
+  "filename": "pan_card.pdf",
+  "sha256": "8fa2daef6c838f5702d8d5fb0c33cad2716e5d373d05f83b662044febc47070a",
+  "fields": {
+    "pan": {
+      "value": "DDDGE3456D",
+      "confidence": 0.99,
+      "page": 1,
+      "snippet": "Permanent Account Number: DDDGE3456D",
+      "bbox": [
+        72,
+        200,
+        300,
+        220
+      ]
+    },
+    "company_name_pan": {
+      "value": "GLOBALEDGE IT PRIVATE LIMITED",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "Name: GLOBALEDGE IT PRIVATE LIMITED",
+      "bbox": [
+        72,
+        220,
+        420,
+        240
+      ]
+    }
+  }
+}

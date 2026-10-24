@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder C",
+  "bidder_name": "QuickByte Systems",
+  "doc_type": "EMD_DOCUMENT",
+  "filename": "emd_document.pdf",
+  "sha256": "da8a956616f321efad006e2ee48b01140bc0c7aea9b630b579e8c051d80e0b04",
+  "fields": {
+    "emd_amount": {
+      "value": 0.0,
+      "confidence": 0.88,
+      "page": 1,
+      "snippet": "EMD Amount: 0.0",
+      "bbox": [
+        72,
+        300,
+        350,
+        320
+      ]
+    },
+    "emd_type": {
+      "value": "MSE_EXEMPT",
+      "confidence": 0.88,
+      "page": 1,
+      "snippet": "Type: MSE_EXEMPT",
+      "bbox": [
+        72,
+        320,
+        300,
+        340
+      ]
+    },
+    "emd_valid_until": {
+      "value": null,
+      "confidence": 0.88,
+      "page": 1,
+      "snippet": "Valid Until: None",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    },
+    "emd_or_exemption_present": {
+      "value": true,
+      "confidence": 0.88,
+      "page": 1,
+      "snippet": "EMD/Exemption Present",
+      "bbox": [
+        72,
+        360,
+        350,
+        380
+      ]
+    }
+  }
+}

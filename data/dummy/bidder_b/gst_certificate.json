@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "GST_CERTIFICATE",
+  "filename": "gst_certificate.pdf",
+  "sha256": "a8376938d902a64f590334a48081ce8d416fdba8a6450596fd59954c1fe5df02",
+  "fields": {
+    "gstin": {
+      "value": "29BBBDE5678B1Z9",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "GSTIN: 29BBBDE5678B1Z9",
+      "bbox": [
+        72,
+        300,
+        300,
+        320
+      ]
+    },
+    "company_name_gst": {
+      "value": "DATAPRIME ENTERPRISES LLP",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Legal Name: DATAPRIME ENTERPRISES LLP",
+      "bbox": [
+        72,
+        320,
+        420,
+        340
+      ]
+    },
+    "gst_registration_date": {
+      "value": "2019-07-15",
+      "confidence": 0.93,
+      "page": 1,
+      "snippet": "Date of Registration: 15/07/2019",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    }
+  }
+}

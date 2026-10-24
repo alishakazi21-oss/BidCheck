@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder C",
+  "bidder_name": "QuickByte Systems",
+  "doc_type": "EXPERIENCE_LETTER",
+  "filename": "experience_letter.pdf",
+  "sha256": "ba8bc61d6196bdcef842c79f3d76110ebf2859a1c41dc80358034d84f64f72b3",
+  "fields": {
+    "experience_years": {
+      "value": 4.0,
+      "confidence": 0.89,
+      "page": 1,
+      "snippet": "In business since 2020 (4 years)",
+      "bbox": [
+        72,
+        300,
+        450,
+        320
+      ]
+    },
+    "incorporation_date": {
+      "value": "2020-03-10",
+      "confidence": 0.87,
+      "page": 1,
+      "snippet": "Date of Incorporation: 10/03/2020",
+      "bbox": [
+        72,
+        320,
+        350,
+        340
+      ]
+    }
+  }
+}

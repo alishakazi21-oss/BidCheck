@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder A",
+  "bidder_name": "TechServe Solutions Pvt. Ltd.",
+  "doc_type": "GST_CERTIFICATE",
+  "filename": "gst_certificate.pdf",
+  "sha256": "b8e8bcae910f9573a0ab2c23d00df615e2fc16e631b5d72ab4fcda839b3eadb6",
+  "fields": {
+    "gstin": {
+      "value": "27AABCT1234A1Z5",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "GSTIN: 27AABCT1234A1Z5",
+      "bbox": [
+        72,
+        300,
+        300,
+        320
+      ]
+    },
+    "company_name_gst": {
+      "value": "TECHSERVE SOLUTIONS PRIVATE LIMITED",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Legal Name: TECHSERVE SOLUTIONS PRIVATE LIMITED",
+      "bbox": [
+        72,
+        320,
+        400,
+        340
+      ]
+    },
+    "gst_registration_date": {
+      "value": "2017-04-01",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Date of Registration: 01/04/2017",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    }
+  }
+}

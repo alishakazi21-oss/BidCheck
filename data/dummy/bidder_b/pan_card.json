@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "PAN_CARD",
+  "filename": "pan_card.pdf",
+  "sha256": "53def23574de2fecb71f5f8c5c0e49c2017c7b1c8085ca4bce02a361535c9e0d",
+  "fields": {
+    "pan": {
+      "value": "BBBDE5678B",
+      "confidence": 0.99,
+      "page": 1,
+      "snippet": "Permanent Account Number: BBBDE5678B",
+      "bbox": [
+        72,
+        200,
+        300,
+        220
+      ]
+    },
+    "company_name_pan": {
+      "value": "DATAPRIME ENTERPRISES",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "Name: DATAPRIME ENTERPRISES",
+      "bbox": [
+        72,
+        220,
+        400,
+        240
+      ]
+    }
+  }
+}

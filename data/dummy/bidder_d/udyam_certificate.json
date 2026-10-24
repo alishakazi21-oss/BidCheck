@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "UDYAM_CERTIFICATE",
+  "filename": "udyam_certificate.pdf",
+  "sha256": "f2e7fcf303ca555b4e4ef51f022506a60cfb638f35d07e2f0e0dc83a1f221bda",
+  "fields": {
+    "udyam_number": {
+      "value": "UDYAM-TN-07-0089012",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Udyam Registration Number: UDYAM-TN-07-0089012",
+      "bbox": [
+        72,
+        280,
+        380,
+        300
+      ]
+    },
+    "enterprise_category": {
+      "value": "Small",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Category: Small Enterprise",
+      "bbox": [
+        72,
+        300,
+        250,
+        320
+      ]
+    },
+    "udyam_valid_until": {
+      "value": "2023-09-30",
+      "confidence": 0.96,
+      "page": 1,
+      "snippet": "Valid Until: 30/09/2023",
+      "bbox": [
+        72,
+        320,
+        250,
+        340
+      ]
+    },
+    "mse_proof_valid": {
+      "value": true,
+      "confidence": 0.92,
+      "page": 1,
+      "snippet": "Category: Small Enterprise",
+      "bbox": [
+        72,
+        300,
+        350,
+        340
+      ]
+    }
+  }
+}

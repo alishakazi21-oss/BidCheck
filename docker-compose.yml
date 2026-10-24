@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  bidcheck-app:
+    build: .
+    container_name: bidcheck-app
+    ports:
+      - "8501:8501"  # Streamlit Dashboard
+      - "8000:8000"  # FastAPI Backend Service
+    environment:
+      - EXTRACTOR=fake
+      - DATABASE_URL=sqlite:///data/bidcheck.db
+      - CONFIDENCE_THRESHOLD=0.70
+      - FUZZY_THRESHOLD=85
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+    command: >
+      sh -c "python scripts/evaluate.py &&
+             streamlit run ui/app.py --server.port=8501 --server.address=0.0.0.0"

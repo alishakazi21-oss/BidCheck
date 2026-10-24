@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder A",
+  "bidder_name": "TechServe Solutions Pvt. Ltd.",
+  "doc_type": "UDYAM_CERTIFICATE",
+  "filename": "udyam_certificate.pdf",
+  "sha256": "d2b0a2e9681dba521f68a905d1ee8b7a39389452ae7db48b57f4c12f75570583",
+  "fields": {
+    "udyam_number": {
+      "value": "UDYAM-MH-10-0012345",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Udyam Registration Number: UDYAM-MH-10-0012345",
+      "bbox": [
+        72,
+        280,
+        350,
+        300
+      ]
+    },
+    "enterprise_category": {
+      "value": "Small",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Category: Small Enterprise",
+      "bbox": [
+        72,
+        300,
+        250,
+        320
+      ]
+    },
+    "udyam_valid_until": {
+      "value": "2026-03-31",
+      "confidence": 0.94,
+      "page": 1,
+      "snippet": "Valid Until: 31/03/2026",
+      "bbox": [
+        72,
+        320,
+        250,
+        340
+      ]
+    },
+    "mse_proof_valid": {
+      "value": true,
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Category: Small Enterprise — Valid",
+      "bbox": [
+        72,
+        300,
+        350,
+        340
+      ]
+    }
+  }
+}

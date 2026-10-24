@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder C",
+  "bidder_name": "QuickByte Systems",
+  "doc_type": "UDYAM_CERTIFICATE",
+  "filename": "udyam_certificate.pdf",
+  "sha256": "f5559e62d951cfcb65b46cfd539153375bb6617a69a81184ee3ca68931d996e6",
+  "fields": {
+    "udyam_number": {
+      "value": "UDYAM-HR-02-0034567",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Udyam Registration Number: UDYAM-HR-02-0034567",
+      "bbox": [
+        72,
+        280,
+        380,
+        300
+      ]
+    },
+    "enterprise_category": {
+      "value": "Micro",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Category: Micro Enterprise",
+      "bbox": [
+        72,
+        300,
+        250,
+        320
+      ]
+    },
+    "udyam_valid_until": {
+      "value": "2025-12-31",
+      "confidence": 0.94,
+      "page": 1,
+      "snippet": "Valid Until: 31/12/2025",
+      "bbox": [
+        72,
+        320,
+        250,
+        340
+      ]
+    },
+    "mse_proof_valid": {
+      "value": false,
+      "confidence": 0.85,
+      "page": 1,
+      "snippet": "CAUTION: Certificate status: INVALID — See remarks",
+      "bbox": [
+        72,
+        340,
+        450,
+        360
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "OEM_AUTHORIZATION",
+  "filename": "oem_authorization.pdf",
+  "sha256": "d8b9c2816383ab226b8e65279c0e468a1ae1fe6d6612c60590ce949b0b86c19d",
+  "fields": {
+    "oem_name": {
+      "value": "LaptopTech Global Inc.",
+      "confidence": 0.96,
+      "page": 1,
+      "snippet": "OEM Name: LaptopTech Global Inc.",
+      "bbox": [
+        72,
+        200,
+        350,
+        220
+      ]
+    },
+    "oem_auth_valid_until": {
+      "value": "2025-12-31",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Authorization valid until: 31/12/2025",
+      "bbox": [
+        72,
+        380,
+        350,
+        400
+      ]
+    },
+    "oem_auth_present": {
+      "value": true,
+      "confidence": 0.96,
+      "page": 1,
+      "snippet": "This letter certifies authorization",
+      "bbox": [
+        72,
+        250,
+        500,
+        280
+      ]
+    }
+  }
+}

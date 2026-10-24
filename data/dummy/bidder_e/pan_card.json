@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder E",
+  "bidder_name": "NanoTech Components Pvt. Ltd.",
+  "doc_type": "PAN_CARD",
+  "filename": "pan_card.pdf",
+  "sha256": "d46b7fb831a1ca37de4e645bd2f69dc5115d877e808d345a776e9a6e885624fa",
+  "fields": {
+    "pan": {
+      "value": "EEETN7890E",
+      "confidence": 0.99,
+      "page": 1,
+      "snippet": "Permanent Account Number: EEETN7890E",
+      "bbox": [
+        72,
+        200,
+        300,
+        220
+      ]
+    },
+    "company_name_pan": {
+      "value": "NANOTECH COMPONENTS PRIVATE LIMITED",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "Name: NANOTECH COMPONENTS PRIVATE LIMITED",
+      "bbox": [
+        72,
+        220,
+        450,
+        240
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+# BidCheck — Python dependencies
+# Python 3.11+ required (tested on 3.14)
+# Install: pip install -r requirements.txt
+
+# -----------------------------------------------------------------------
+# Web framework & API
+# -----------------------------------------------------------------------
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9        # For file uploads in FastAPI
+
+# -----------------------------------------------------------------------
+# Database (SQLite default; Postgres-ready)
+# -----------------------------------------------------------------------
+sqlalchemy==2.0.35
+alembic==1.13.3                # Schema migrations (future use)
+
+# -----------------------------------------------------------------------
+# Data validation & settings
+# -----------------------------------------------------------------------
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# -----------------------------------------------------------------------
+# Document processing
+# -----------------------------------------------------------------------
+pdfplumber==0.11.4             # Digital PDF text extraction
+PyMuPDF==1.24.12               # PDF rendering to images (fitz)
+reportlab==4.2.5               # Generating dummy PDFs
+Pillow==10.4.0                 # Image handling
+
+# -----------------------------------------------------------------------
+# OCR (optional; comment out if not needed for offline demo)
+# -----------------------------------------------------------------------
+pytesseract==0.3.13            # Tesseract OCR wrapper
+# paddleocr==2.8.1             # PaddleOCR (heavier; optional)
+
+# -----------------------------------------------------------------------
+# Text processing & fuzzy matching
+# -----------------------------------------------------------------------
+rapidfuzz==3.10.0              # Fuzzy string matching for name comparison
+python-dateutil==2.9.0         # Robust date parsing
+
+# -----------------------------------------------------------------------
+# UI
+# -----------------------------------------------------------------------
+streamlit==1.39.0
+streamlit-extras==0.4.7        # Additional Streamlit components
+
+# -----------------------------------------------------------------------
+# LLM (only needed when EXTRACTOR=llm)
+# -----------------------------------------------------------------------
+openai==1.51.2
+tenacity==9.0.0                # Retry logic for LLM calls
+jsonschema==4.23.0             # Validate LLM JSON output
+
+# -----------------------------------------------------------------------
+# Export
+# -----------------------------------------------------------------------
+weasyprint==62.3               # HTML → PDF report export
+jinja2==3.1.4                  # HTML template rendering
+
+# -----------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------
+pytest==8.3.3
+pytest-cov==5.0.0
+httpx==0.27.2                  # Async HTTP client for FastAPI test client
+
+# -----------------------------------------------------------------------
+# Utilities
+# -----------------------------------------------------------------------
+python-dotenv==1.0.1           # Load .env files
+rich==13.9.2                   # Pretty console output
+click==8.1.7                   # CLI argument parsing

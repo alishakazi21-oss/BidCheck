@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "UDYAM_CERTIFICATE",
+  "filename": "udyam_certificate.pdf",
+  "sha256": "d0544e47dce6dca7ed320138fa1f0ab4c80e668c0d4731857fc72ebe52ca47e7",
+  "fields": {
+    "udyam_number": {
+      "value": "UDYAM-KA-05-0067890",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Udyam Registration Number: UDYAM-KA-05-0067890",
+      "bbox": [
+        72,
+        280,
+        380,
+        300
+      ]
+    },
+    "enterprise_category": {
+      "value": "Small",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Category: Small Enterprise",
+      "bbox": [
+        72,
+        300,
+        250,
+        320
+      ]
+    },
+    "udyam_valid_until": {
+      "value": "2025-06-30",
+      "confidence": 0.94,
+      "page": 1,
+      "snippet": "Valid Until: 30/06/2025",
+      "bbox": [
+        72,
+        320,
+        250,
+        340
+      ]
+    },
+    "mse_proof_valid": {
+      "value": true,
+      "confidence": 0.94,
+      "page": 1,
+      "snippet": "Category: Small Enterprise — Valid",
+      "bbox": [
+        72,
+        300,
+        350,
+        340
+      ]
+    }
+  }
+}

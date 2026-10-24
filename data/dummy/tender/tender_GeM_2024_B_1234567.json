@@ -1,0 +1,63 @@
+{
+  "tender": {
+    "gem_id": "GeM/2024/B/1234567",
+    "title": "Supply of Laptop Computers (GeM Category: IT Hardware)",
+    "description": "Procurement of 200 laptop computers conforming to GeM specification LAPTOP/CORE_I5/16GB/512GB/WIN11. Bidders must comply with all eligibility criteria specified in this tender. This is a DUMMY tender for demonstration.",
+    "bid_submission_deadline": "2024-12-31",
+    "criteria": {
+      "TURNOVER_MIN": {
+        "label": "Minimum Average Annual Turnover (3 years)",
+        "mandatory": true,
+        "threshold_value": "3200000",
+        "threshold_unit": "INR",
+        "exemption_categories": [
+          "MSE",
+          "STARTUP"
+        ]
+      },
+      "EXPERIENCE_YEARS_MIN": {
+        "label": "Minimum Years in Business",
+        "mandatory": true,
+        "threshold_value": "3",
+        "threshold_unit": "years",
+        "exemption_categories": [
+          "STARTUP"
+        ]
+      },
+      "OEM_AUTH_PRESENT": {
+        "label": "OEM Authorization Letter Required",
+        "mandatory": true,
+        "threshold_value": null,
+        "threshold_unit": null,
+        "exemption_categories": [
+          "OEM_ITSELF"
+        ]
+      },
+      "EMD_OR_EXEMPTION_PROOF": {
+        "label": "EMD (₹50,000) or Valid Exemption Certificate",
+        "mandatory": true,
+        "threshold_value": "50000",
+        "threshold_unit": "INR",
+        "exemption_categories": [
+          "MSE",
+          "STARTUP"
+        ]
+      },
+      "CERT_VALIDITY": {
+        "label": "All Certificates Valid on Bid Date",
+        "mandatory": true,
+        "threshold_value": "2024-12-31",
+        "threshold_unit": "date",
+        "exemption_categories": []
+      },
+      "GSTIN_PAN_CONSISTENT": {
+        "label": "GSTIN and PAN Company Name Match",
+        "mandatory": true,
+        "threshold_value": null,
+        "threshold_unit": null,
+        "exemption_categories": []
+      }
+    }
+  },
+  "sha256": "a75c196c736e4b908d5c3d8decf1a81426e9efaa2695f69b607005fb95a0d966"
+}

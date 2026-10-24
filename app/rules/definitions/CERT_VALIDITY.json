@@ -1,0 +1,13 @@
+{
+  "id": "CERT_VALIDITY",
+  "label": "All statutory and vendor certificates valid on bid submission date",
+  "mandatory": true,
+  "check": {
+    "field": "udyam_valid_until",
+    "op": "date_gte",
+    "value": "2024-12-31"
+  },
+  "exemptions": [],
+  "on_missing": "NEEDS_REVIEW",
+  "missing_reason": "Certificate validity date could not be determined from the uploaded documents."
+}

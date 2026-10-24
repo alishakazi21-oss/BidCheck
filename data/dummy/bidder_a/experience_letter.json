@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder A",
+  "bidder_name": "TechServe Solutions Pvt. Ltd.",
+  "doc_type": "EXPERIENCE_LETTER",
+  "filename": "experience_letter.pdf",
+  "sha256": "35aaa559df690a39cde949e883b49d1332d9d16e09051ebd0dff7f3b295b8a8c",
+  "fields": {
+    "experience_years": {
+      "value": 7.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "In business since April 2017 (7 years of experience)",
+      "bbox": [
+        72,
+        300,
+        450,
+        320
+      ]
+    },
+    "incorporation_date": {
+      "value": "2017-04-01",
+      "confidence": 0.88,
+      "page": 1,
+      "snippet": "Date of Incorporation: 01/04/2017",
+      "bbox": [
+        72,
+        320,
+        350,
+        340
+      ]
+    }
+  }
+}

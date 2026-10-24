@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "EXPERIENCE_LETTER",
+  "filename": "experience_letter.pdf",
+  "sha256": "6b11127511ebc54361ca575e8a7c2383f490c36104a1f6590f70b590e28cb2ae",
+  "fields": {
+    "experience_years": {
+      "value": 5.0,
+      "confidence": 0.89,
+      "page": 1,
+      "snippet": "In business since 2019 (5 years)",
+      "bbox": [
+        72,
+        300,
+        450,
+        320
+      ]
+    },
+    "incorporation_date": {
+      "value": "2019-07-15",
+      "confidence": 0.87,
+      "page": 1,
+      "snippet": "Date of Incorporation: 15/07/2019",
+      "bbox": [
+        72,
+        320,
+        350,
+        340
+      ]
+    }
+  }
+}

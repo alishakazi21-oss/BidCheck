@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder B",
+  "bidder_name": "DataPrime Enterprises",
+  "doc_type": "TURNOVER_CERT",
+  "filename": "turnover_certificate.pdf",
+  "sha256": "12e80c169798321ff3a207dc6ab2d45aa93b817c53b4636695327e66c05f3463",
+  "fields": {
+    "avg_turnover_3y": {
+      "value": 5500000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "Average Annual Turnover: Rs. 55,00,000",
+      "bbox": [
+        72,
+        350,
+        500,
+        380
+      ]
+    },
+    "turnover_fy1": {
+      "value": 5200000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2021-22: Rs. 52,00,000",
+      "bbox": [
+        72,
+        390,
+        400,
+        410
+      ]
+    },
+    "turnover_fy2": {
+      "value": 5500000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2022-23: Rs. 55,00,000",
+      "bbox": [
+        72,
+        410,
+        400,
+        430
+      ]
+    },
+    "turnover_fy3": {
+      "value": 5800000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2023-24: Rs. 58,00,000",
+      "bbox": [
+        72,
+        430,
+        400,
+        450
+      ]
+    }
+  }
+}

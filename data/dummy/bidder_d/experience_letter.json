@@ -1,0 +1,33 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "EXPERIENCE_LETTER",
+  "filename": "experience_letter.pdf",
+  "sha256": "4d4575291c6d8d8de01335ac545f3d8e6dd4c4f721b9ce60a5eeaf6a2e07ca3d",
+  "fields": {
+    "experience_years": {
+      "value": 6.0,
+      "confidence": 0.89,
+      "page": 1,
+      "snippet": "In business since 2018 (6 years)",
+      "bbox": [
+        72,
+        300,
+        450,
+        320
+      ]
+    },
+    "incorporation_date": {
+      "value": "2018-01-20",
+      "confidence": 0.87,
+      "page": 1,
+      "snippet": "Date of Incorporation: 20/01/2018",
+      "bbox": [
+        72,
+        320,
+        350,
+        340
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "TURNOVER_CERT",
+  "filename": "turnover_certificate.pdf",
+  "sha256": "2bfd4aba16111a0439c4bd874d959375b42a4006c183ef0db6df5e7e7c3f4726",
+  "fields": {
+    "avg_turnover_3y": {
+      "value": 4800000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "Average Annual Turnover: Rs. 48,00,000",
+      "bbox": [
+        72,
+        350,
+        500,
+        380
+      ]
+    },
+    "turnover_fy1": {
+      "value": 4500000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2021-22: Rs. 45,00,000",
+      "bbox": [
+        72,
+        390,
+        400,
+        410
+      ]
+    },
+    "turnover_fy2": {
+      "value": 4800000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2022-23: Rs. 48,00,000",
+      "bbox": [
+        72,
+        410,
+        400,
+        430
+      ]
+    },
+    "turnover_fy3": {
+      "value": 5100000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2023-24: Rs. 51,00,000",
+      "bbox": [
+        72,
+        430,
+        400,
+        450
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder D",
+  "bidder_name": "GlobalEdge IT Pvt. Ltd.",
+  "doc_type": "GST_CERTIFICATE",
+  "filename": "gst_certificate.pdf",
+  "sha256": "e680f665e77b260e7e31b0cd38384435a4b943c4f5f32a763787c585bed3f893",
+  "fields": {
+    "gstin": {
+      "value": "33DDDGE3456D1Z7",
+      "confidence": 0.98,
+      "page": 1,
+      "snippet": "GSTIN: 33DDDGE3456D1Z7",
+      "bbox": [
+        72,
+        300,
+        300,
+        320
+      ]
+    },
+    "company_name_gst": {
+      "value": "GLOBALEDGE IT PRIVATE LIMITED",
+      "confidence": 0.97,
+      "page": 1,
+      "snippet": "Legal Name: GLOBALEDGE IT PRIVATE LIMITED",
+      "bbox": [
+        72,
+        320,
+        420,
+        340
+      ]
+    },
+    "gst_registration_date": {
+      "value": "2018-01-20",
+      "confidence": 0.93,
+      "page": 1,
+      "snippet": "Date of Registration: 20/01/2018",
+      "bbox": [
+        72,
+        340,
+        300,
+        360
+      ]
+    }
+  }
+}

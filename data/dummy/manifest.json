@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-10-24T12:26:14.183056Z",
+  "tender": {
+    "pdf": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\tender\\tender_GeM_2024_B_1234567.pdf",
+    "sidecar": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\tender\\tender_GeM_2024_B_1234567.json"
+  },
+  "bidders": [
+    {
+      "label": "Bidder A",
+      "name": "TechServe Solutions Pvt. Ltd.",
+      "gstin": "27AABCT1234A1Z5",
+      "pan": "AABCT1234A",
+      "dir": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a",
+      "docs": {
+        "gst_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\gst_certificate.pdf",
+        "pan_card": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\pan_card.pdf",
+        "udyam_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\udyam_certificate.pdf",
+        "turnover_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\turnover_certificate.pdf",
+        "experience_letter": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\experience_letter.pdf",
+        "oem_authorization": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\oem_authorization.pdf",
+        "emd_document": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_a\\emd_document.pdf"
+      }
+    },
+    {
+      "label": "Bidder B",
+      "name": "DataPrime Enterprises",
+      "gstin": "29BBBDE5678B1Z9",
+      "pan": "BBBDE5678B",
+      "dir": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b",
+      "docs": {
+        "gst_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\gst_certificate.pdf",
+        "pan_card": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\pan_card.pdf",
+        "udyam_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\udyam_certificate.pdf",
+        "turnover_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\turnover_certificate.pdf",
+        "experience_letter": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\experience_letter.pdf",
+        "oem_authorization": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\oem_authorization.pdf",
+        "emd_document": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_b\\emd_document.pdf"
+      }
+    },
+    {
+      "label": "Bidder C",
+      "name": "QuickByte Systems",
+      "gstin": "06CCCQS9012C1Z3",
+      "pan": "CCCQS9012C",
+      "dir": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c",
+      "docs": {
+        "gst_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\gst_certificate.pdf",
+        "pan_card": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\pan_card.pdf",
+        "udyam_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\udyam_certificate.pdf",
+        "turnover_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\turnover_certificate.pdf",
+        "experience_letter": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\experience_letter.pdf",
+        "oem_authorization": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\oem_authorization.pdf",
+        "emd_document": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_c\\emd_document.pdf"
+      }
+    },
+    {
+      "label": "Bidder D",
+      "name": "GlobalEdge IT Pvt. Ltd.",
+      "gstin": "33DDDGE3456D1Z7",
+      "pan": "DDDGE3456D",
+      "dir": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d",
+      "docs": {
+        "gst_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\gst_certificate.pdf",
+        "pan_card": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\pan_card.pdf",
+        "udyam_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\udyam_certificate.pdf",
+        "turnover_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\turnover_certificate.pdf",
+        "experience_letter": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\experience_letter.pdf",
+        "emd_document": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_d\\emd_document.pdf"
+      }
+    },
+    {
+      "label": "Bidder E",
+      "name": "NanoTech Components Pvt. Ltd.",
+      "gstin": "24EEETN7890E1Z1",
+      "pan": "EEETN7890E",
+      "dir": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e",
+      "docs": {
+        "gst_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\gst_certificate.pdf",
+        "pan_card": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\pan_card.pdf",
+        "udyam_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\udyam_certificate.pdf",
+        "turnover_certificate": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\turnover_certificate.pdf",
+        "experience_letter": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\experience_letter.pdf",
+        "oem_authorization": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\oem_authorization.pdf",
+        "emd_document": "C:\\Users\\lenovo\\OneDrive\\Desktop\\BidCheck\\data\\dummy\\bidder_e\\emd_document.pdf"
+      }
+    }
+  ]
+}

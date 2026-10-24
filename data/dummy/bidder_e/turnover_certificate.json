@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder E",
+  "bidder_name": "NanoTech Components Pvt. Ltd.",
+  "doc_type": "TURNOVER_CERT",
+  "filename": "turnover_certificate.pdf",
+  "sha256": "8b3a0681f1bcddc0317bd01f1b2e07c63ccd57d4bcd76102ead6572780a6e67a",
+  "fields": {
+    "avg_turnover_3y": {
+      "value": 1200000.0,
+      "confidence": 0.92,
+      "page": 1,
+      "snippet": "Average Annual Turnover: Rs. 12,00,000",
+      "bbox": [
+        72,
+        350,
+        500,
+        380
+      ]
+    },
+    "turnover_fy1": {
+      "value": 1100000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2021-22: Rs. 11,00,000",
+      "bbox": [
+        72,
+        390,
+        400,
+        410
+      ]
+    },
+    "turnover_fy2": {
+      "value": 1200000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2022-23: Rs. 12,00,000",
+      "bbox": [
+        72,
+        410,
+        400,
+        430
+      ]
+    },
+    "turnover_fy3": {
+      "value": 1300000.0,
+      "confidence": 0.9,
+      "page": 1,
+      "snippet": "FY 2023-24: Rs. 13,00,000",
+      "bbox": [
+        72,
+        430,
+        400,
+        450
+      ]
+    }
+  }
+}

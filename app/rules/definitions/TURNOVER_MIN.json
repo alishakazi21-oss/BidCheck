@@ -1,0 +1,22 @@
+{
+  "id": "TURNOVER_MIN",
+  "label": "Minimum average annual turnover (3 years)",
+  "mandatory": true,
+  "check": {
+    "field": "avg_turnover_3y",
+    "op": ">=",
+    "value": 3200000.0,
+    "unit": "INR"
+  },
+  "exemptions": [
+    {
+      "category_in": ["MSE", "STARTUP"],
+      "proof_field": "mse_proof_valid",
+      "validity_field": "udyam_valid_until",
+      "result": "EXEMPT",
+      "reason": "Exempt from minimum turnover as a verified MSE/Startup with valid non-expired certificate."
+    }
+  ],
+  "on_missing": "NEEDS_REVIEW",
+  "missing_reason": "3-year average turnover certificate or figure is not available for verification."
+}

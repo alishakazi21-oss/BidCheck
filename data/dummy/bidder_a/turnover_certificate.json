@@ -1,0 +1,57 @@
+{
+  "bidder_label": "Bidder A",
+  "bidder_name": "TechServe Solutions Pvt. Ltd.",
+  "doc_type": "TURNOVER_CERT",
+  "filename": "turnover_certificate.pdf",
+  "sha256": "dfff210d8f50fdfd12ce2ec09463bf0ad4c1429ff1be33dd2a3b97b9b92442ba",
+  "fields": {
+    "avg_turnover_3y": {
+      "value": 4500000.0,
+      "confidence": 0.92,
+      "page": 1,
+      "snippet": "Average Annual Turnover (FY 2021-22, 2022-23, 2023-24): Rs. 45,00,000",
+      "bbox": [
+        72,
+        350,
+        500,
+        380
+      ]
+    },
+    "turnover_fy1": {
+      "value": 4200000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "FY 2021-22: Rs. 42,00,000",
+      "bbox": [
+        72,
+        390,
+        400,
+        410
+      ]
+    },
+    "turnover_fy2": {
+      "value": 4500000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "FY 2022-23: Rs. 45,00,000",
+      "bbox": [
+        72,
+        410,
+        400,
+        430
+      ]
+    },
+    "turnover_fy3": {
+      "value": 4800000.0,
+      "confidence": 0.91,
+      "page": 1,
+      "snippet": "FY 2023-24: Rs. 48,00,000",
+      "bbox": [
+        72,
+        430,
+        400,
+        450
+      ]
+    }
+  }
+}

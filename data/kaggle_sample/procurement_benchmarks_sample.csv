@@ -1,0 +1,41 @@
+contract_id,category_raw,description,award_amount,currency,award_year,vendor_name,country
+WB-IT-2022-001,IT Hardware & Computers,Procurement of 200 Standard Business Laptops i5 16GB,7200000,INR,2022,Apex Computech Ltd,India
+WB-IT-2022-002,IT Equipment,Supply of 150 Enterprise Laptops and Accessories,5400000,INR,2022,MicroTech Solutions,India
+WB-IT-2022-003,Computers & Peripherals,200 Laptop Units Core i5 512GB SSD,7100000,INR,2022,Zenith Hardware Systems,India
+WB-IT-2022-004,IT Hardware,Supply of Portable Computers 200 Units,7350000,INR,2022,TechnoWorld Corp,India
+WB-IT-2022-005,IT Hardware,200 Business Notebook Computers,7000000,INR,2022,Future Technologies,India
+WB-IT-2022-006,Hardware - IT,Commercial Laptops 200 Units with OS,7450000,INR,2022,Global InfoTech,India
+WB-IT-2022-007,IT Hardware & Computers,Mobile Computing Devices 200 nos,6900000,INR,2022,InfraSys India,India
+WB-IT-2022-008,IT Equipment,Laptop Supply 200 units Windows 11 Pro,7250000,INR,2022,Prime Compusys,India
+WB-IT-2023-009,Computers & Peripherals,Standard Laptop Procurement (200 qty),7150000,INR,2023,Nova Informatics,India
+WB-IT-2023-010,IT Hardware,200 Laptops i5/16GB for Field Offices,7300000,INR,2023,Omega Tech Distribution,India
+WB-IT-2023-011,IT Hardware,200 Notebooks Core i5 Gen 12,7050000,INR,2023,Silverline Systems,India
+WB-IT-2023-012,Hardware - IT,Bulk Purchase of 200 Commercial Laptops,7500000,INR,2023,Matrix Digital India,India
+WB-IT-2023-013,IT Hardware & Computers,200 Units Laptops for Engineering Dept,7400000,INR,2023,Vertex Computech,India
+WB-IT-2023-014,IT Equipment,High Durability Laptops 200 Units,7600000,INR,2023,Compucare Solutions,India
+WB-IT-2023-015,IT Hardware,200 Laptop Devices with warranty,6950000,INR,2023,Alpha Infotech,India
+WB-IT-2023-016,IT Hardware,200 Office Laptops Core i5 16GB RAM,7220000,INR,2023,Benchmark Sys Pvt Ltd,India
+WB-IT-2023-017,Computers & Peripherals,Notebook Computers Lot of 200,7180000,INR,2023,United Tech Services,India
+WB-IT-2023-018,IT Hardware,200 Laptops Core i5 512GB,7280000,INR,2023,Falcon Electronics,India
+WB-IT-2023-019,IT Equipment,Commercial Grade 200 Laptops,7320000,INR,2023,Paramount Tech,India
+WB-IT-2023-020,IT Hardware & Computers,200 Business Laptops Delivery and Setup,7080000,INR,2023,Vanguard Computers,India
+WB-IT-2024-021,IT Hardware,Procurement of 200 Laptops FY24,7120000,INR,2024,Precision InfoSystems,India
+WB-IT-2024-022,Hardware - IT,200 Laptops Core i5 for Admin Staff,7240000,INR,2024,CoreByte Technologies,India
+WB-IT-2024-023,Computers & Peripherals,Lot 200 Laptop Computers GeM Spec,7380000,INR,2024,SmartEdge Electronics,India
+WB-IT-2024-024,IT Hardware,200 Standard Laptops 14 inch,7020000,INR,2024,Pinnacle Technologies,India
+WB-IT-2024-025,IT Hardware & Computers,200 Enterprise Notebooks,7420000,INR,2024,Starlight Computech,India
+WB-IT-2024-026,IT Equipment,200 Laptops with 3Yr Onsite Warranty,7290000,INR,2024,Dynamic Data Systems,India
+WB-IT-2024-027,IT Hardware,Office Laptops Core i5 200 Qty,7170000,INR,2024,NetLink Solutions,India
+WB-IT-2024-028,Computers & Peripherals,200 Workstation Laptops,7550000,INR,2024,SysTech India Ltd,India
+WB-IT-2024-029,IT Hardware,Portable PCs 200 units,6880000,INR,2024,BlueChip Computers,India
+WB-IT-2024-030,IT Hardware & Computers,200 Core i5 Portable Computers,7190000,INR,2024,Orbit Tech Enterprises,India
+WB-IT-2024-031,IT Equipment,200 Business Laptops with Windows 11,7260000,INR,2024,CyberNet Supplies,India
+WB-IT-2024-032,Hardware - IT,200 Laptops standard configuration,7340000,INR,2024,Elite Systems,India
+WB-IT-2024-033,IT Hardware,200 Laptops supply and testing,7090000,INR,2024,Integra Solutions,India
+WB-IT-2024-034,Computers & Peripherals,200 Notebook PCs for Training Center,7140000,INR,2024,Gateway Electronics,India
+WB-IT-2024-035,IT Hardware & Computers,200 Laptops with carry bags and mice,7480000,INR,2024,Trident Tech,India
+WB-OFF-2023-001,Office Furniture & Supplies,Executive ergonomic office chairs 50 nos,450000,INR,2023,Comfort Seating Ltd,India
+WB-OFF-2023-002,Office Equipment,Heavy duty multi-function printer copiers,820000,INR,2023,OfficePlus Systems,India
+WB-OFF-2023-003,Office Supplies,Modular office workstations 20 bays,1250000,INR,2023,Workplace Designs,India
+WB-NET-2024-001,Network Infrastructure,Core 24-port Gigabit PoE switches 10 units,950000,INR,2024,Cisco Partner Net,India
+WB-NET-2024-002,Network Infrastructure,Cat6 UTP cabling and rack installation,650000,INR,2024,CableTech Works,India

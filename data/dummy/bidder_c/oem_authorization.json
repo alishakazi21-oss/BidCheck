@@ -1,0 +1,45 @@
+{
+  "bidder_label": "Bidder C",
+  "bidder_name": "QuickByte Systems",
+  "doc_type": "OEM_AUTHORIZATION",
+  "filename": "oem_authorization.pdf",
+  "sha256": "f22a36acf90c0fe12a92813a2829adc6923ede772700cd54757c50502eaf8e62",
+  "fields": {
+    "oem_name": {
+      "value": "LaptopTech Global Inc.",
+      "confidence": 0.96,
+      "page": 1,
+      "snippet": "OEM Name: LaptopTech Global Inc.",
+      "bbox": [
+        72,
+        200,
+        350,
+        220
+      ]
+    },
+    "oem_auth_valid_until": {
+      "value": "2025-12-31",
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "Authorization valid until: 31/12/2025",
+      "bbox": [
+        72,
+        380,
+        350,
+        400
+      ]
+    },
+    "oem_auth_present": {
+      "value": true,
+      "confidence": 0.95,
+      "page": 1,
+      "snippet": "This letter certifies authorization",
+      "bbox": [
+        72,
+        250,
+        500,
+        280
+      ]
+    }
+  }
+}
