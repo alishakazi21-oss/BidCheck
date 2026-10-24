@@ -11,7 +11,8 @@ import re
 from pathlib import Path
 from typing import Optional
 
-import fitz
+# fitz (PyMuPDF) is imported lazily inside classify_document so this module
+# loads cleanly in slim environments (Vercel) where PyMuPDF is not installed.
 from app.models.database import DocumentType
 
 
@@ -85,6 +86,7 @@ def classify_document(file_path: str, hint_name: Optional[str] = None) -> Docume
 
     # Fallback to inspecting text content
     try:
+        import fitz  # PyMuPDF — lazy import, only for text-content fallback  # noqa: PLC0415
         doc = fitz.open(file_path)
         first_page_text = doc[0].get_text().lower() if len(doc) > 0 else ""
         doc.close()
