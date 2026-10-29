@@ -1,0 +1,52 @@
+# BidCheck - Vercel deployment ignore file
+# Excludes files that would push the bundle over Vercel's 250MB unzipped limit.
+# Only the Python source (app/, api/) and slim requirements are needed.
+
+# ── UI (Streamlit - not deployed on Vercel) ──────────────────────────────────
+ui/
+
+# ── Data files (PDFs, DB, uploads) ───────────────────────────────────────────
+data/
+reports/
+public/
+
+# ── Scripts (data generation - not needed at runtime) ────────────────────────
+scripts/
+
+# ── Tests ─────────────────────────────────────────────────────────────────────
+tests/
+
+# ── Firebase / Functions (separate deploy target) ────────────────────────────
+functions/
+
+# ── Python caches ─────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Local environment / secrets ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Dev tooling ───────────────────────────────────────────────────────────────
+Makefile
+Dockerfile
+docker-compose.yml
+.firebaserc
+firebase.json
+
+# ── IDEs / OS ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.git/
+Thumbs.db
+.DS_Store
+
+# ── Full requirements (replaced by requirements-vercel.txt on Vercel) ─────────
+# Note: requirements.txt is still sent so Vercel can detect Python project,
+# but requirements-vercel.txt is used via vercel.json config.

@@ -1,26 +1,29 @@
-# BidCheck - Vercel deployment requirements (slim build)
-# Heavy packages (PyMuPDF, weasyprint, pytesseract, streamlit) are excluded
-# because Vercel serverless functions have a 250MB unzipped size limit.
+# BidCheck - Vercel deployment requirements (ultra-slim build)
+# Target: stay well under Vercel's 250MB unzipped bundle limit.
+#
+# Removed intentionally:
+#   openai, tenacity, jsonschema  -> ~80 MB; only needed for EXTRACTOR=llm (not used on Vercel)
+#   rapidfuzz                     -> ~15 MB; lazy-imported in cross_check.py
+#   mangum                        -> not needed; Vercel @vercel/python handles ASGI natively
+#   PyMuPDF, pdfplumber, etc.     -> already excluded; PDF pipeline not used in serverless mode
+#   streamlit, weasyprint         -> already excluded; UI not deployed here
 
-# Web framework & API
+# Web framework (FastAPI + its required dependencies)
 fastapi==0.115.0
-mangum==0.17.0
+# uvicorn not needed; Vercel invokes the ASGI app directly
 
-# Database
+# Multipart form / file upload support (required by FastAPI's UploadFile)
+python-multipart==0.0.9
+
+# Database (SQLite via stdlib; SQLAlchemy for ORM)
 sqlalchemy==2.0.35
 
-# Data validation & settings
+# Data validation & settings management
 pydantic==2.9.2
 pydantic-settings==2.5.2
 
-# Text processing
-rapidfuzz==3.10.0
+# Date parsing (lightweight, pure-Python)
 python-dateutil==2.9.0
 
-# LLM (optional; only used when EXTRACTOR=llm)
-openai==1.51.2
-tenacity==9.0.0
-jsonschema==4.23.0
-
-# Utilities
+# Environment variable loading
 python-dotenv==1.0.1

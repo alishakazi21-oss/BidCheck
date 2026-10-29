@@ -17,7 +17,24 @@ import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
-from rapidfuzz import fuzz
+import difflib
+
+
+def _fuzzy_token_sort_ratio(a: str, b: str) -> float:
+    """
+    Fuzzy token-sort similarity (0-100).
+    Uses rapidfuzz if available (faster, better), otherwise falls back to
+    stdlib difflib.SequenceMatcher (zero extra dependencies, good enough).
+    """
+    try:
+        from rapidfuzz import fuzz as _fuzz  # noqa: PLC0415
+        return _fuzz.token_sort_ratio(a, b)
+    except ImportError:
+        # Stdlib fallback: sort tokens, then use SequenceMatcher
+        a_sorted = " ".join(sorted(a.split()))
+        b_sorted = " ".join(sorted(b.split()))
+        ratio = difflib.SequenceMatcher(None, a_sorted, b_sorted).ratio()
+        return ratio * 100  # Convert to 0-100 scale
 
 from app.config import settings
 from app.models.database import FlagType
@@ -100,7 +117,7 @@ def verify_bidder_cross_documents(
             label2, name2 = names_to_compare[j]
             norm1 = normalize_company_name(name1)
             norm2 = normalize_company_name(name2)
-            similarity = fuzz.token_sort_ratio(norm1, norm2)
+            similarity = _fuzzy_token_sort_ratio(norm1, norm2)
             tokens1 = set(norm1.split())
             tokens2 = set(norm2.split())
             legal_suffixes = {"LLP", "LIMITED", "PRIVATE"}
