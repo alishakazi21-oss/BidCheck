@@ -15,9 +15,15 @@ from __future__ import annotations
 
 import io
 import json
+import sys
 from datetime import datetime, date
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+# Ensure project root is in sys.path when invoked via streamlit
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 import streamlit as st
 from sqlalchemy.orm import Session
@@ -140,6 +146,7 @@ with st.sidebar:
             "4. ⚖️ Cross-Bidder Comparison",
             "5. ✍️ Officer Decision & Export",
             "6. 🔐 Audit Trail & Verification",
+            "7. ⚡ REST API & Swagger Docs",
         ],
         index=1,
     )
@@ -813,4 +820,31 @@ elif selected_page.startswith("6."):
         )
     st.dataframe(log_data, use_container_width=True)
 
+# ==============================================================================
+# SCREEN 7: REST API & Swagger Docs (Integrated View)
+# ==============================================================================
+elif selected_page.startswith("7."):
+    st.markdown("### ⚡ Integrated FastAPI Backend & Swagger Interactive Docs")
+    st.info("The FastAPI backend runs concurrently on port 8000 and is fully embedded right here.")
+
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.markdown("**Direct API Links:**")
+        st.markdown("- 📖 **Interactive Swagger UI:** [http://localhost:8000/docs](http://localhost:8000/docs)")
+        st.markdown("- 📑 **ReDoc Documentation:** [http://localhost:8000/redoc](http://localhost:8000/redoc)")
+        st.markdown("- 🌐 **API Root Endpoint:** [http://localhost:8000/](http://localhost:8000/)")
+
+    with col2:
+        st.markdown("**Key Endpoints Available:**")
+        st.code("""GET  /tenders              - Ingested tender specifications
+GET  /bidders              - Compliance metrics across bidders
+GET  /bidders/{id}         - Detailed bidder rules & flags
+POST /bidders/{id}/evaluate - Run evaluation engine
+GET  /audit/verify         - Cryptographic chain verification""", language="http")
+
+    st.divider()
+    st.markdown("#### 🔍 Embedded API Playground")
+    st.components.v1.iframe("http://localhost:8000/docs", height=750, scrolling=True)
+
 db.close()
+

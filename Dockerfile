@@ -34,4 +34,4 @@ RUN python scripts/make_dummy_data.py && python scripts/load_kaggle_data.py
 
 EXPOSE 8501 8000
 
-CMD ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "ui/dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]

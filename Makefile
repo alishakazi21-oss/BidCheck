@@ -24,7 +24,7 @@ evaluate:
 	python scripts/evaluate.py
 
 run:
-	streamlit run ui/app.py
+	streamlit run ui/dashboard.py
 
 run-api:
 	uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload

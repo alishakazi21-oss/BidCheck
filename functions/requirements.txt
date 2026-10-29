@@ -1,0 +1,24 @@
+# BidCheck - Firebase Cloud Functions (2nd gen) requirements
+# Slim dependency set for serverless Python 3.11 runtime
+
+# Firebase Functions 2nd gen Python SDK (required)
+firebase-functions>=0.4.2
+
+# Web framework
+fastapi==0.115.0
+
+# ASGI server (needed for asyncio event loop inside the function)
+# No uvicorn needed — we run the ASGI app directly via asyncio
+
+# Database ORM (SQLite via stdlib)
+sqlalchemy==2.0.35
+
+# Data validation & settings
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# Date utilities
+python-dateutil==2.9.0
+
+# Environment variable loading
+python-dotenv==1.0.1

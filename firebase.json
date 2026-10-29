@@ -1,0 +1,35 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "bidcheck-api",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "runtime": "python311"
+    }
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "bidcheckApi",
+        "region": "us-central1"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

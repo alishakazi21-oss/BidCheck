@@ -1,0 +1,21 @@
+{
+  "id": "EMD_OR_EXEMPTION_PROOF",
+  "label": "Earnest Money Deposit (EMD) or Valid Exemption Certificate",
+  "mandatory": true,
+  "check": {
+    "field": "emd_or_exemption_present",
+    "op": "==",
+    "value": true
+  },
+  "exemptions": [
+    {
+      "category_in": ["MSE", "STARTUP"],
+      "proof_field": "mse_proof_valid",
+      "validity_field": "udyam_valid_until",
+      "result": "EXEMPT",
+      "reason": "Exempt from EMD deposit as verified MSE/Startup entity with valid registration."
+    }
+  ],
+  "on_missing": "FAIL",
+  "missing_reason": "Neither EMD instrument (BG/DD) nor statutory exemption certificate was submitted."
+}

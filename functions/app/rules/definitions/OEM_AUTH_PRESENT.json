@@ -1,0 +1,21 @@
+{
+  "id": "OEM_AUTH_PRESENT",
+  "label": "OEM Authorization Letter or Direct Manufacturer Status",
+  "mandatory": true,
+  "check": {
+    "field": "oem_auth_present",
+    "op": "==",
+    "value": true
+  },
+  "exemptions": [
+    {
+      "category_in": ["OEM_ITSELF"],
+      "proof_field": "is_oem_manufacturer",
+      "validity_field": null,
+      "result": "EXEMPT",
+      "reason": "Bidder is the Original Equipment Manufacturer (OEM) itself; third-party authorization not required."
+    }
+  ],
+  "on_missing": "FAIL",
+  "missing_reason": "Mandatory OEM authorization letter is missing from the bid submission."
+}

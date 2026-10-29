@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BidCheck — AI-Assisted GeM Bid Compliance Verification</title>
+  <meta name="description" content="AI-powered decision support system for procurement officers evaluating Government e-Marketplace (GeM) bids in India. Deterministic rule engine, tamper-evident audit trail." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #05080f;
+      --bg-card: #0c1220;
+      --bg-glass: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --border-glow: rgba(99,179,237,0.3);
+      --accent: #3b82f6;
+      --accent-2: #8b5cf6;
+      --accent-3: #06b6d4;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --glow-blue: rgba(59,130,246,0.15);
+      --glow-purple: rgba(139,92,246,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated background ── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .bg-orb-1 {
+      position: fixed; top: -200px; left: -200px; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+      animation: drift1 15s ease-in-out infinite alternate;
+    }
+    .bg-orb-2 {
+      position: fixed; bottom: -200px; right: -100px; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+      animation: drift2 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(80px, 60px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-60px, -80px); } }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(5,8,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .nav-logo .badge {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white; font-size: 0.6rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 99px; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 0.4rem 0.9rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); background: var(--bg-glass); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white; border: none; padding: 0.5rem 1.25rem;
+      border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
+
+    /* ── Main layout ── */
+    main { position: relative; z-index: 1; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 8rem 1.5rem 4rem;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25);
+      color: #60a5fa; font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 99px; margin-bottom: 2rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      animation: fadeInDown 0.6s ease both;
+    }
+    .pill-dot { width: 6px; height: 6px; background: #60a5fa; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity: 0.4; } }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.03em; margin-bottom: 1.5rem;
+      animation: fadeInDown 0.6s 0.1s ease both;
+    }
+    h1 .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #22d3ee 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      max-width: 600px; color: var(--text-secondary); font-size: 1.125rem;
+      line-height: 1.7; margin-bottom: 2.5rem;
+      animation: fadeInDown 0.6s 0.2s ease both;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 4rem; animation: fadeInDown 0.6s 0.3s ease both;
+    }
+    .btn-outline {
+      background: transparent; color: var(--text-primary);
+      border: 1px solid var(--border); padding: 0.6rem 1.4rem;
+      border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: #60a5fa; background: rgba(59,130,246,0.05); }
+
+    @keyframes fadeInDown { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform: translateY(0); } }
+
+    /* ── API Status Widget ── */
+    .api-status-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.25rem 1.75rem;
+      max-width: 520px; width: 100%; text-align: left;
+      animation: fadeInDown 0.6s 0.4s ease both;
+    }
+    .status-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .status-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; }
+    .status-dot { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); }
+    .dot.online { background: var(--success); box-shadow: 0 0 8px var(--success); animation: pulse 2s infinite; }
+    .dot.loading { background: var(--warning); }
+    .dot.error { background: var(--danger); }
+    .status-url {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      color: var(--accent-3); background: rgba(6,182,212,0.08);
+      padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(6,182,212,0.15);
+      word-break: break-all; cursor: pointer; transition: background 0.2s;
+    }
+    .status-url:hover { background: rgba(6,182,212,0.15); }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      padding: 2rem 1.5rem; max-width: 900px; margin: 0 auto;
+    }
+    .stat-item {
+      flex: 1; min-width: 160px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem; text-align: center;
+      transition: all 0.25s;
+    }
+    .stat-item:hover { border-color: var(--border-glow); transform: translateY(-2px); }
+    .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+    /* ── Features ── */
+    .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      text-align: center; font-size: 2rem; font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 0.75rem;
+    }
+    .section-sub { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--card-glow, transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .feature-card:hover { border-color: var(--border-glow); transform: translateY(-4px); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card.blue { --card-glow: radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 60%); }
+    .feature-card.purple { --card-glow: radial-gradient(circle at top left, rgba(139,92,246,0.08), transparent 60%); }
+    .feature-card.cyan { --card-glow: radial-gradient(circle at top left, rgba(6,182,212,0.08), transparent 60%); }
+    .feature-card.green { --card-glow: radial-gradient(circle at top left, rgba(16,185,129,0.08), transparent 60%); }
+
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .feature-icon.blue { background: rgba(59,130,246,0.15); }
+    .feature-icon.purple { background: rgba(139,92,246,0.15); }
+    .feature-icon.cyan { background: rgba(6,182,212,0.15); }
+    .feature-icon.green { background: rgba(16,185,129,0.15); }
+
+    .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feature-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── API Explorer ── */
+    .api-explorer {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-top: 2rem;
+    }
+    .api-explorer-header {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .dot-red { width: 12px; height: 12px; background: #ef4444; border-radius: 50%; }
+    .dot-yellow { width: 12px; height: 12px; background: #f59e0b; border-radius: 50%; }
+    .dot-green { width: 12px; height: 12px; background: #10b981; border-radius: 50%; }
+    .api-explorer-title { margin-left: 0.5rem; font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+    .api-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+    .api-tab {
+      padding: 0.75rem 1.25rem; font-size: 0.8rem; font-weight: 600;
+      color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent;
+      transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .api-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .api-content { padding: 1.5rem; }
+    .api-panel { display: none; }
+    .api-panel.active { display: block; }
+
+    .endpoint-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer;
+      transition: background 0.2s; margin-bottom: 0.5rem;
+    }
+    .endpoint-item:hover { background: var(--bg-glass); }
+    .method-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+      padding: 0.2rem 0.6rem; border-radius: 6px; min-width: 52px; text-align: center;
+    }
+    .method-badge.get { background: rgba(16,185,129,0.15); color: #34d399; }
+    .method-badge.post { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .endpoint-path { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-primary); }
+    .endpoint-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+    /* ── Live test area ── */
+    .live-test {
+      background: rgba(0,0,0,0.3); border-radius: 12px;
+      padding: 1.25rem; margin-top: 1.5rem;
+    }
+    .live-test-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .url-input-row { display: flex; gap: 0.5rem; }
+    .url-input {
+      flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--text-primary); padding: 0.6rem 0.9rem; border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .url-input:focus { border-color: var(--accent); }
+    .btn-send {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white; border: none; padding: 0.6rem 1.25rem;
+      border-radius: 8px; font-weight: 600; cursor: pointer;
+      font-size: 0.875rem; transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-send:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(59,130,246,0.4); }
+    .btn-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .response-box {
+      margin-top: 1rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem; display: none;
+    }
+    .response-box.visible { display: block; }
+    .response-status { font-size: 0.75rem; margin-bottom: 0.5rem; }
+    .response-status .ok { color: var(--success); font-weight: 700; }
+    .response-status .err { color: var(--danger); font-weight: 700; }
+    .response-body {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      color: #a5f3fc; white-space: pre-wrap; max-height: 300px; overflow-y: auto;
+      line-height: 1.6;
+    }
+
+    /* ── Principles ── */
+    .principles { background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .principles .section { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; padding: 4rem 1.5rem; }
+    .principle-item { text-align: center; }
+    .principle-num {
+      font-size: 2.5rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;
+    }
+    .principle-title { font-weight: 700; margin-bottom: 0.5rem; }
+    .principle-desc { color: var(--text-secondary); font-size: 0.875rem; line-height: 1.65; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border); color: var(--text-muted);
+      font-size: 0.875rem; position: relative; z-index: 1;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-disclaimer {
+      max-width: 600px; margin: 1rem auto 0;
+      background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 10px; padding: 0.75rem 1.25rem; color: #fca5a5; font-size: 0.8rem;
+    }
+
+    /* ── Animations ── */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0.875rem 1rem; }
+      .nav-links { display: none; }
+      h1 { font-size: 2.25rem; }
+      .hero { padding: 7rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+
+  <!-- ── Navbar ── -->
+  <nav>
+    <div class="nav-logo">
+      ⚖️ BidCheck
+      <span class="badge">Beta</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#api">API</a>
+      <a href="#principles">Principles</a>
+    </div>
+    <a class="btn-primary" href="/api/docs" target="_blank">
+      📄 API Docs
+    </a>
+  </nav>
+
+  <main>
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero-pill">
+        <span class="pill-dot"></span>
+        Government e-Marketplace · Decision Support System
+      </div>
+      <h1>
+        AI-Assisted<br />
+        <span class="gradient-text">GeM Bid Compliance</span><br />
+        Verification
+      </h1>
+      <p class="hero-sub">
+        Deterministic rule engine + AI document extraction + tamper-evident audit trail.
+        Built for procurement officers evaluating bids on Government e-Marketplace (GeM) India.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="/api/docs" target="_blank">
+          🚀 Explore API Docs
+        </a>
+        <a class="btn-outline" href="#api">
+          ⚡ Try Live API
+        </a>
+        <a class="btn-outline" href="https://github.com" target="_blank">
+          ⭐ GitHub
+        </a>
+      </div>
+
+      <!-- API Status Widget -->
+      <div class="api-status-card" id="statusCard">
+        <div class="status-header">
+          <span class="status-label">🔌 Backend API Status</span>
+          <span class="status-dot" id="statusIndicator">
+            <span class="dot loading" id="statusDot"></span>
+            <span id="statusText">Checking...</span>
+          </span>
+        </div>
+        <div class="status-url" id="apiUrl" onclick="copyUrl()">
+          Loading endpoint URL...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stats ── -->
+    <div class="stats-strip fade-in">
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Synthetic Bidders</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Compliance Rules</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">SHA-256</div>
+        <div class="stat-label">Hash-Chained Audit</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">58</div>
+        <div class="stat-label">Tests Passing</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Offline-First</div>
+      </div>
+    </div>
+
+    <!-- ── Features ── -->
+    <section id="features" class="section fade-in">
+      <h2 class="section-title">Built for Procurement Integrity</h2>
+      <p class="section-sub">Every component designed to support officers without replacing their judgment.</p>
+      <div class="features-grid">
+        <div class="feature-card blue">
+          <div class="feature-icon blue">🤖</div>
+          <div class="feature-title">AI Document Extraction</div>
+          <div class="feature-desc">
+            LLM-powered or offline FakeExtractor reads bid documents, extracts structured fields with bounding-box coordinates for evidence tracing.
+          </div>
+        </div>
+        <div class="feature-card purple">
+          <div class="feature-icon purple">⚙️</div>
+          <div class="feature-title">Deterministic Rule Engine</div>
+          <div class="feature-desc">
+            Plain Python rules — no hallucinations. Evaluates TURNOVER_MIN, CERT_VALIDITY, OEM_AUTH, MSME_EXEMPTION with full auditability.
+          </div>
+        </div>
+        <div class="feature-card cyan">
+          <div class="feature-icon cyan">🔐</div>
+          <div class="feature-title">Tamper-Evident Audit Trail</div>
+          <div class="feature-desc">
+            SHA-256 hash chain links every action. A single tampered row breaks the chain — detectable instantly via the /audit/verify endpoint.
+          </div>
+        </div>
+        <div class="feature-card green">
+          <div class="feature-icon green">✍️</div>
+          <div class="feature-title">Officer Override System</div>
+          <div class="feature-desc">
+            Officers can override any AI recommendation with mandatory written justification. All overrides are permanently logged and immutable.
+          </div>
+        </div>
+        <div class="feature-card blue">
+          <div class="feature-icon blue">🏛️</div>
+          <div class="feature-title">Mock Government Registries</div>
+          <div class="feature-desc">
+            Synthetic GSTN, MCA/Income Tax, and Udyam MSME registry cross-checks with realistic dummy responses for demo and testing.
+          </div>
+        </div>
+        <div class="feature-card purple">
+          <div class="feature-icon purple">📊</div>
+          <div class="feature-title">Compliance Scorecard</div>
+          <div class="feature-desc">
+            Weighted scoring across all criteria. Risk levels (LOW/MEDIUM/HIGH) computed from rule outcomes. MSME exemptions applied automatically.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Principles ── -->
+    <div class="principles" id="principles">
+      <div class="section">
+        <div class="principle-item fade-in">
+          <div class="principle-num">01</div>
+          <div class="principle-title">AI Reads, Engine Decides</div>
+          <div class="principle-desc">LLMs extract text & coordinates. Deterministic Python rules evaluate compliance — no hallucination risk in decisions.</div>
+        </div>
+        <div class="principle-item fade-in">
+          <div class="principle-num">02</div>
+          <div class="principle-title">Officer Always Approves</div>
+          <div class="principle-desc">System is DECISION SUPPORT ONLY. Never automatically disqualifies. Final legal authority rests with the procurement officer.</div>
+        </div>
+        <div class="principle-item fade-in">
+          <div class="principle-num">03</div>
+          <div class="principle-title">Offline-First</div>
+          <div class="principle-desc">Works out-of-the-box with FakeExtractor reading sidecar JSONs. No internet required. Switch to LLM mode when needed.</div>
+        </div>
+        <div class="principle-item fade-in">
+          <div class="principle-num">04</div>
+          <div class="principle-title">Cryptographic Integrity</div>
+          <div class="principle-desc">Every action appended to a SHA-256 hash-chained log. Tampering is detected immediately and alerts the verification endpoint.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── API Explorer ── -->
+    <section id="api" class="section fade-in">
+      <h2 class="section-title">Live API Explorer</h2>
+      <p class="section-sub">Test the BidCheck REST API directly from your browser.</p>
+      <div class="api-explorer">
+        <div class="api-explorer-header">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+          <span class="api-explorer-title">BidCheck REST API · Python FastAPI</span>
+        </div>
+        <div class="api-tabs">
+          <button class="api-tab active" onclick="switchTab('endpoints')">Endpoints</button>
+          <button class="api-tab" onclick="switchTab('test')">Try It</button>
+        </div>
+        <div class="api-content">
+          <div id="tab-endpoints" class="api-panel active">
+            <div class="endpoint-item" onclick="selectEndpoint('GET', '/api/', 'Service health check')">
+              <span class="method-badge get">GET</span>
+              <div>
+                <div class="endpoint-path">/api/</div>
+                <div class="endpoint-desc">Service health check & status</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="selectEndpoint('GET', '/api/tenders', 'List all tenders')">
+              <span class="method-badge get">GET</span>
+              <div>
+                <div class="endpoint-path">/api/tenders</div>
+                <div class="endpoint-desc">List all tenders with metadata</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="selectEndpoint('GET', '/api/bidders', 'List all bidders with scores')">
+              <span class="method-badge get">GET</span>
+              <div>
+                <div class="endpoint-path">/api/bidders</div>
+                <div class="endpoint-desc">List all bidders with compliance scores</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="selectEndpoint('GET', '/api/bidders/1', 'Get detailed bidder evaluation')">
+              <span class="method-badge get">GET</span>
+              <div>
+                <div class="endpoint-path">/api/bidders/{id}</div>
+                <div class="endpoint-desc">Get detailed bidder evaluation & flags</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="selectEndpoint('POST', '/api/bidders/1/evaluate', 'Trigger bidder evaluation')">
+              <span class="method-badge post">POST</span>
+              <div>
+                <div class="endpoint-path">/api/bidders/{id}/evaluate</div>
+                <div class="endpoint-desc">Trigger full compliance evaluation</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="selectEndpoint('GET', '/api/audit/verify', 'Verify audit chain integrity')">
+              <span class="method-badge get">GET</span>
+              <div>
+                <div class="endpoint-path">/api/audit/verify</div>
+                <div class="endpoint-desc">Cryptographic audit chain integrity check</div>
+              </div>
+            </div>
+            <div class="endpoint-item" onclick="window.open('/api/docs','_blank')">
+              <span class="method-badge get" style="background:rgba(245,158,11,0.15);color:#fbbf24;">📄</span>
+              <div>
+                <div class="endpoint-path">/api/docs</div>
+                <div class="endpoint-desc">Interactive Swagger UI — full API documentation</div>
+              </div>
+            </div>
+          </div>
+          <div id="tab-test" class="api-panel">
+            <div class="live-test">
+              <div class="live-test-label">Send Request</div>
+              <div class="url-input-row">
+                <input class="url-input" id="testUrl" type="text" placeholder="/api/bidders" value="/api/bidders" />
+                <button class="btn-send" id="sendBtn" onclick="sendRequest()">Send ⚡</button>
+              </div>
+              <div class="response-box" id="responseBox">
+                <div class="response-status" id="responseStatus"></div>
+                <pre class="response-body" id="responseBody"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>⚖️ <strong>BidCheck</strong> · AI-Assisted GeM Bid Compliance Verification</p>
+    <p style="margin-top:0.5rem;">Built for Government e-Marketplace (GeM) India · <a href="/api/docs">API Docs</a> · <a href="/api/">Health Check</a></p>
+    <div class="footer-disclaimer">
+      ⚠️ <strong>DECISION SUPPORT ONLY</strong> — This system never automatically disqualifies bidders.
+      All government registries (GSTN, MCA, Udyam) are <strong>MOCK services</strong> using synthetic data.
+      The procurement officer retains full legal authority.
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll fade-in observer ──────────────────────────────────────────────
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── API base URL detection ───────────────────────────────────────────────
+    const BASE_URL = window.location.origin;
+
+    // ── API Status Check ─────────────────────────────────────────────────────
+    async function checkApiStatus() {
+      const dot = document.getElementById('statusDot');
+      const text = document.getElementById('statusText');
+      const urlEl = document.getElementById('apiUrl');
+
+      urlEl.textContent = BASE_URL + '/api/';
+
+      try {
+        const res = await fetch(BASE_URL + '/api/', { signal: AbortSignal.timeout(8000) });
+        if (res.ok) {
+          dot.className = 'dot online';
+          text.textContent = 'Online · ' + res.status;
+        } else {
+          dot.className = 'dot error';
+          text.textContent = 'Error · ' + res.status;
+        }
+      } catch (e) {
+        dot.className = 'dot error';
+        text.textContent = 'Offline';
+      }
+    }
+    checkApiStatus();
+    setInterval(checkApiStatus, 30000);
+
+    // ── Copy URL ─────────────────────────────────────────────────────────────
+    function copyUrl() {
+      navigator.clipboard.writeText(BASE_URL + '/api/').then(() => {
+        const el = document.getElementById('apiUrl');
+        const orig = el.textContent;
+        el.textContent = '✅ Copied!';
+        setTimeout(() => el.textContent = orig, 1500);
+      });
+    }
+
+    // ── Tab switching ────────────────────────────────────────────────────────
+    function switchTab(tab) {
+      document.querySelectorAll('.api-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.api-panel').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tab).classList.add('active');
+    }
+
+    // ── Select endpoint → populate test tab ──────────────────────────────────
+    function selectEndpoint(method, path, desc) {
+      document.querySelectorAll('.api-tab')[1].click();
+      document.getElementById('testUrl').value = path;
+    }
+
+    // ── Send test request ────────────────────────────────────────────────────
+    async function sendRequest() {
+      const btn = document.getElementById('sendBtn');
+      const urlInput = document.getElementById('testUrl');
+      const responseBox = document.getElementById('responseBox');
+      const responseStatus = document.getElementById('responseStatus');
+      const responseBody = document.getElementById('responseBody');
+
+      let path = urlInput.value.trim();
+      if (!path.startsWith('/')) path = '/' + path;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      responseBox.classList.add('visible');
+      responseStatus.innerHTML = '<span style="color:var(--text-muted)">⏳ Fetching...</span>';
+      responseBody.textContent = '';
+
+      try {
+        const res = await fetch(BASE_URL + path, { signal: AbortSignal.timeout(15000) });
+        const data = await res.json();
+        const statusClass = res.ok ? 'ok' : 'err';
+        responseStatus.innerHTML = `Status: <span class="${statusClass}">${res.status} ${res.statusText}</span>`;
+        responseBody.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        responseStatus.innerHTML = `<span class="err">Error: ${e.message}</span>`;
+        responseBody.textContent = 'Could not reach the API. Make sure the Cloud Function is deployed and running.';
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Send ⚡';
+    }
+
+    // Enter key sends request
+    document.getElementById('testUrl')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') sendRequest();
+    });
+  </script>
+</body>
+</html>

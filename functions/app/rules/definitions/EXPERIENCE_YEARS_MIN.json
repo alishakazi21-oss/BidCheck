@@ -1,0 +1,22 @@
+{
+  "id": "EXPERIENCE_YEARS_MIN",
+  "label": "Minimum experience in business",
+  "mandatory": true,
+  "check": {
+    "field": "experience_years",
+    "op": ">=",
+    "value": 3.0,
+    "unit": "years"
+  },
+  "exemptions": [
+    {
+      "category_in": ["STARTUP"],
+      "proof_field": "startup_proof_valid",
+      "validity_field": "startup_cert_valid_until",
+      "result": "EXEMPT",
+      "reason": "Recognised DPIIT Startup exempt from prior experience requirement per government guidelines."
+    }
+  ],
+  "on_missing": "NEEDS_REVIEW",
+  "missing_reason": "Experience documentation or incorporation certificate not provided for verification."
+}
